@@ -5,7 +5,7 @@ CREATE TABLE `users` (
 );
 
 CREATE TABLE `wallets` (
-    `wallet_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
     `amount` VARCHAR(45) NOT NULL,
     `user` INT(11) NOT NULL,
     PRIMARY KEY(`wallet_id`)

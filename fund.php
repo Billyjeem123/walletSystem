@@ -13,7 +13,7 @@ if ( !isset( $_POST)) {
 $curl = curl_init();
 
 $email = $_SESSION['user']['email'];
-$amount = 100 * $_POST['amount'];  // the amount in kobo. This value is multiplied by hundred
+$amount = 100 * $_POST['amount'];  // the amount in kobo. 
 
 // url to go to after payment
 $callback_url = BASE . '/addfund.php';  
@@ -46,16 +46,15 @@ if( $err ){
   die('Curl returned error: ' . $err);
 }
 
-$tranx = json_decode($response, true);
+$responseMsg = json_decode($response, true);
 
-if ( ! $tranx->status ) {
+if ( ! $responseMsg->status ) {
   // there was an error from the API
-  print_r('API returned error: ' . $tranx['message']);
+  print_r('API returned error: ' . $responseMsg['message']);
 }
-// user will be redirected
-// comment out this line if you want to redirect the user to the payment page
-// print_r($tranx);
+// View response
+// print_r($responseMsg);
 
 // redirect to page so User can pay
-// uncomment this line to allow the user redirect to the payment page
-header('Location: ' . $tranx['data']['authorization_url']);
+// Redirct User topaystack payment page 
+header('Location: ' . $responseMsg['data']['authorization_url']);

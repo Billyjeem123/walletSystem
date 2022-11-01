@@ -35,10 +35,8 @@ if(!$tranx->status){
 if('success' == $tranx->data->status){
   // transaction was successful...
   // please check other things like whether you already gave value for this ref
-  // if the email matches the customer who owns the product etc
-  // Give value
-  header("content-type: application/json");
-
+  // verify  email matches the customer who owns the product etc
+ 
   // uncomment this line if you want to see the payment data
   //echo $response;
   //die();
@@ -47,7 +45,7 @@ if('success' == $tranx->data->status){
       // update the user wallet
       $user = $_SESSION['user']['id'];
       $amount = $tranx->data->amount  / 100;
-      $sql = "UPDATE `wallets` SET amount = amount + '$amount' WHERE user = $user";
+      $sql = "UPDATE `tblwallet` SET amount = amount + '$amount' WHERE user = $user";
       $stmt = $db->query($sql);
       
       // redirect to wallet
