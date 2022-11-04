@@ -21,5 +21,4 @@ Just enter your domain name: http://mydomain.com
 My name is Billy  a software developer in Nigeria.
 
 Thanks, you can follow me on Twitter <https://twitter.com/BILLYJEEM>
-Thanks, you can follow me on Linkedin <https://linkedin.com/in/billyhadiattaofeeq>
 
